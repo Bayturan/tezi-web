@@ -1,0 +1,76 @@
+<article class="content">
+  <% if (submitted) { %>
+    <div class="alert alert-success">
+      <h2>&#10003; Request Submitted</h2>
+      <p>
+        Your account deletion request has been received. We will process it
+        within <strong>30 days</strong> and send a confirmation to your email.
+      </p>
+      <p>If you have any questions, contact us at
+        <a href="mailto:privacy@tezi-web.example">privacy@tezi-web.example</a>.
+      </p>
+    </div>
+  <% } else { %>
+    <h1>Request Account Deletion</h1>
+    <p>
+      Use this form to request the deletion of your personal data from Tezi Web.
+      Once submitted, we will review your request and respond within
+      <strong>30 days</strong>.
+    </p>
+
+    <% if (errors && errors.length > 0) { %>
+      <div class="alert alert-error">
+        <ul>
+          <% errors.forEach(function(err) { %>
+            <li><%= err %></li>
+          <% }); %>
+        </ul>
+      </div>
+    <% } %>
+
+    <form method="POST" action="/requests/users/delete" novalidate>
+      <div class="form-group">
+        <label for="name">Full Name <span class="required">*</span></label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          value="<%= typeof name !== 'undefined' ? name : '' %>"
+          autocomplete="name"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address <span class="required">*</span></label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          value="<%= typeof email !== 'undefined' ? email : '' %>"
+          autocomplete="email"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="reason">Reason for Deletion (optional)</label>
+        <textarea id="reason" name="reason" rows="4"><%= typeof reason !== 'undefined' ? reason : '' %></textarea>
+      </div>
+
+      <div class="form-group checkbox-group">
+        <label>
+          <input type="checkbox" name="confirm" value="yes" required />
+          I understand that deleting my account is permanent and cannot be undone.
+        </label>
+      </div>
+
+      <button type="submit" class="btn btn-danger">Submit Deletion Request</button>
+    </form>
+
+    <p class="note">
+      For more information about how we handle your data, see our
+      <a href="/privacy">Privacy Policy</a>.
+    </p>
+  <% } %>
+</article>

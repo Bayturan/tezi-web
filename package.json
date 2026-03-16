@@ -1,0 +1,17 @@
+{
+  "name": "tezi-web",
+  "version": "1.0.0",
+  "description": "Basic Bun/Fastify web app with privacy and user data delete request routes",
+  "type": "module",
+  "scripts": {
+    "start": "bun run src/index.ts",
+    "dev": "bun --watch src/index.ts"
+  },
+  "dependencies": {
+    "@fastify/formbody": "^8.0.2",
+    "@fastify/static": "^9.0.0",
+    "@fastify/view": "^11.1.1",
+    "ejs": "^5.0.1",
+    "fastify": "^5.8.2"
+  }
+}
