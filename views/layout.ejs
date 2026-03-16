@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/public/css/style.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/" class="brand">Tezi Web</a>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/privacy">Privacy Policy</a></li>
+        <li><a href="/requests/users/delete">Delete My Data</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <%- body %>
+  </main>
+
+  <footer>
+    <p>&copy; <%= new Date().getFullYear() %> Tezi Web. All rights reserved.</p>
+    <p><a href="/privacy">Privacy Policy</a> &middot; <a href="/requests/users/delete">Delete My Data</a></p>
+  </footer>
+</body>
+</html>
